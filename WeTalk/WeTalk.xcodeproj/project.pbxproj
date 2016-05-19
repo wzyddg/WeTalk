@@ -14,9 +14,9 @@
 		5545DC381CEC9310008C8945 /* WeTalkUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5545DC371CEC9310008C8945 /* WeTalkUITests.swift */; };
 		5545DC451CEC9B1B008C8945 /* TalkListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5545DC441CEC9B1B008C8945 /* TalkListController.swift */; };
 		5545DC481CEC9D60008C8945 /* TalkListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5545DC461CEC9D60008C8945 /* TalkListCell.swift */; };
-		5545DC491CEC9D60008C8945 /* TalkListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5545DC471CEC9D60008C8945 /* TalkListCell.xib */; };
 		5545DC4B1CECA1C3008C8945 /* ContactListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5545DC4A1CECA1C3008C8945 /* ContactListController.swift */; };
 		5545DC4D1CECA1D5008C8945 /* FriendCircleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5545DC4C1CECA1D5008C8945 /* FriendCircleController.swift */; };
+		5545DC501CECAFCE008C8945 /* ContactListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5545DC4E1CECAFCE008C8945 /* ContactListCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,9 +41,9 @@
 		5545DC391CEC9310008C8945 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5545DC441CEC9B1B008C8945 /* TalkListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TalkListController.swift; sourceTree = "<group>"; };
 		5545DC461CEC9D60008C8945 /* TalkListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TalkListCell.swift; sourceTree = "<group>"; };
-		5545DC471CEC9D60008C8945 /* TalkListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TalkListCell.xib; sourceTree = "<group>"; };
 		5545DC4A1CECA1C3008C8945 /* ContactListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactListController.swift; sourceTree = "<group>"; };
 		5545DC4C1CECA1D5008C8945 /* FriendCircleController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendCircleController.swift; sourceTree = "<group>"; };
+		5545DC4E1CECAFCE008C8945 /* ContactListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactListCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,7 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				5545DC461CEC9D60008C8945 /* TalkListCell.swift */,
-				5545DC471CEC9D60008C8945 /* TalkListCell.xib */,
+				5545DC4E1CECAFCE008C8945 /* ContactListCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -206,7 +206,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5545DC2D1CEC9310008C8945 /* LaunchScreen.storyboard in Resources */,
-				5545DC491CEC9D60008C8945 /* TalkListCell.xib in Resources */,
 				5545DC2A1CEC9310008C8945 /* Assets.xcassets in Resources */,
 				5545DC281CEC9310008C8945 /* Main.storyboard in Resources */,
 			);
@@ -226,6 +225,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5545DC501CECAFCE008C8945 /* ContactListCell.swift in Sources */,
 				5545DC481CEC9D60008C8945 /* TalkListCell.swift in Sources */,
 				5545DC4D1CECA1D5008C8945 /* FriendCircleController.swift in Sources */,
 				5545DC231CEC9310008C8945 /* AppDelegate.swift in Sources */,

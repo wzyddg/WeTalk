@@ -1,5 +1,5 @@
 //
-//  TalkListCell.swift
+//  ContactListCell.swift
 //  WeTalk
 //
 //  Created by 王泽宇 on 16/5/18.
@@ -8,11 +8,9 @@
 
 import UIKit
 
-class TalkListCell: UITableViewCell {
+class ContactListCell: UITableViewCell {
     @IBOutlet weak var avatar: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var lastTimeLabel: UILabel!
-    @IBOutlet weak var lastSentenceLabel: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -21,7 +19,7 @@ class TalkListCell: UITableViewCell {
 
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        
+
         // Configure the view for the selected state
     }
     

@@ -42,12 +42,20 @@ class TalkListController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("TalkListCell", forIndexPath: indexPath)
+        var cell = tableView.dequeueReusableCellWithIdentifier("TalkListCell", forIndexPath: indexPath) as! TalkListCell
         
-        // Configure the cell...
+        cell.avatar.layer.cornerRadius = 5
+        cell.nameLabel.text = "nima\(indexPath.row)"
         
         return cell
     }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        //go to another vc
+        
+    }
+    
+    
     
     /*
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
