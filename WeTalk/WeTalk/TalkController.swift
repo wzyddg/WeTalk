@@ -1,19 +1,24 @@
 //
-//  ContactListController.swift
+//  TalkController.swift
 //  WeTalk
 //
-//  Created by 王泽宇 on 16/5/18.
+//  Created by 王泽宇 on 16/6/1.
 //  Copyright © 2016年 iOSCourse. All rights reserved.
 //
 
 import UIKit
 
-class ContactListController: UITableViewController {
-
+class TalkController: UIViewController, UITableViewDelegate, UITableViewDataSource{
+    
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var sendButton: UIButton!
+    @IBOutlet weak var textField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
+        tableView.delegate = self
+        tableView.dataSource = self
+        // Uncomment the following line to preservedo selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
@@ -24,43 +29,31 @@ class ContactListController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    override func viewWillAppear(animated: Bool) {
-        self.tabBarController?.title = "Contacts"
-    }
 
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return 0
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 3
+        return 0
     }
+
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier("ContactListCell", forIndexPath: indexPath) as! ContactListCell
-        
-        cell.avatar.image = UIImage(named: "icon\(indexPath.row+1)ss")
-        cell.avatar.layer.cornerRadius = 5
-        cell.nameLabel.text = "contact\(indexPath.row+1)"
-        
-        return cell
-    }
-    
-    /*
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
 
         // Configure the cell...
 
         return cell
     }
-    */
-
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 70
+    }
     /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {

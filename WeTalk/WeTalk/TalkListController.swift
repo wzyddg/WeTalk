@@ -12,6 +12,8 @@ class TalkListController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+//        tableView.separatorStyle = .None
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -42,10 +44,11 @@ class TalkListController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier("TalkListCell", forIndexPath: indexPath) as! TalkListCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("TalkListCell", forIndexPath: indexPath) as! TalkListCell
         
+        cell.avatar.image = UIImage(named: "icon\(indexPath.row+1)")
         cell.avatar.layer.cornerRadius = 5
-        cell.nameLabel.text = "nima\(indexPath.row)"
+        cell.nameLabel.text = "contact\(indexPath.row+1)"
         
         return cell
     }

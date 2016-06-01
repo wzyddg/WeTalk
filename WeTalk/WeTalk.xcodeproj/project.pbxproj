@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		551020C21CFEFA530095DCEF /* TalkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551020C11CFEFA530095DCEF /* TalkController.swift */; };
 		5545DC231CEC9310008C8945 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5545DC221CEC9310008C8945 /* AppDelegate.swift */; };
 		5545DC281CEC9310008C8945 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5545DC261CEC9310008C8945 /* Main.storyboard */; };
 		5545DC2A1CEC9310008C8945 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5545DC291CEC9310008C8945 /* Assets.xcassets */; };
@@ -30,6 +31,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		551020C11CFEFA530095DCEF /* TalkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TalkController.swift; sourceTree = "<group>"; };
 		5545DC1F1CEC9310008C8945 /* WeTalk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeTalk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5545DC221CEC9310008C8945 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5545DC271CEC9310008C8945 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 				5545DC441CEC9B1B008C8945 /* TalkListController.swift */,
 				5545DC4A1CECA1C3008C8945 /* ContactListController.swift */,
 				5545DC4C1CECA1D5008C8945 /* FriendCircleController.swift */,
+				551020C11CFEFA530095DCEF /* TalkController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -228,6 +231,7 @@
 				5545DC501CECAFCE008C8945 /* ContactListCell.swift in Sources */,
 				5545DC481CEC9D60008C8945 /* TalkListCell.swift in Sources */,
 				5545DC4D1CECA1D5008C8945 /* FriendCircleController.swift in Sources */,
+				551020C21CFEFA530095DCEF /* TalkController.swift in Sources */,
 				5545DC231CEC9310008C8945 /* AppDelegate.swift in Sources */,
 				5545DC4B1CECA1C3008C8945 /* ContactListController.swift in Sources */,
 				5545DC451CEC9B1B008C8945 /* TalkListController.swift in Sources */,
@@ -420,6 +424,7 @@
 				5545DC3E1CEC9310008C8945 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5545DC3F1CEC9310008C8945 /* Build configuration list for PBXNativeTarget "WeTalkUITests" */ = {
 			isa = XCConfigurationList;
@@ -428,6 +433,7 @@
 				5545DC411CEC9310008C8945 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
