@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2730FBBC52CC0094C10A48CD /* Pods_WeTalk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7CC3186A16C3B21A1A4861A /* Pods_WeTalk.framework */; };
+		550932441D020E540062A7B1 /* ReceiveCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550932431D020E540062A7B1 /* ReceiveCell.swift */; };
+		550932461D020E650062A7B1 /* SendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550932451D020E650062A7B1 /* SendCell.swift */; };
 		551020C21CFEFA530095DCEF /* TalkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551020C11CFEFA530095DCEF /* TalkController.swift */; };
 		5545DC231CEC9310008C8945 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5545DC221CEC9310008C8945 /* AppDelegate.swift */; };
 		5545DC281CEC9310008C8945 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5545DC261CEC9310008C8945 /* Main.storyboard */; };
@@ -31,6 +34,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2D77B0885F605E5AE7F9C780 /* Pods-WeTalk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeTalk.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeTalk/Pods-WeTalk.debug.xcconfig"; sourceTree = "<group>"; };
+		550932431D020E540062A7B1 /* ReceiveCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReceiveCell.swift; sourceTree = "<group>"; };
+		550932451D020E650062A7B1 /* SendCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendCell.swift; sourceTree = "<group>"; };
 		551020C11CFEFA530095DCEF /* TalkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TalkController.swift; sourceTree = "<group>"; };
 		5545DC1F1CEC9310008C8945 /* WeTalk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeTalk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5545DC221CEC9310008C8945 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -46,6 +52,8 @@
 		5545DC4A1CECA1C3008C8945 /* ContactListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactListController.swift; sourceTree = "<group>"; };
 		5545DC4C1CECA1D5008C8945 /* FriendCircleController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendCircleController.swift; sourceTree = "<group>"; };
 		5545DC4E1CECAFCE008C8945 /* ContactListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactListCell.swift; sourceTree = "<group>"; };
+		A7CC3186A16C3B21A1A4861A /* Pods_WeTalk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeTalk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC238FD222D90485966A47F6 /* Pods-WeTalk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeTalk.release.xcconfig"; path = "Pods/Target Support Files/Pods-WeTalk/Pods-WeTalk.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2730FBBC52CC0094C10A48CD /* Pods_WeTalk.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,12 +75,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		002C72EC6D0AB0B2DC0F2227 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2D77B0885F605E5AE7F9C780 /* Pods-WeTalk.debug.xcconfig */,
+				AC238FD222D90485966A47F6 /* Pods-WeTalk.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		233718E3AF3C298FE49F4056 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A7CC3186A16C3B21A1A4861A /* Pods_WeTalk.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		5545DC161CEC9310008C8945 = {
 			isa = PBXGroup;
 			children = (
 				5545DC211CEC9310008C8945 /* WeTalk */,
 				5545DC361CEC9310008C8945 /* WeTalkUITests */,
 				5545DC201CEC9310008C8945 /* Products */,
+				002C72EC6D0AB0B2DC0F2227 /* Pods */,
+				233718E3AF3C298FE49F4056 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -123,6 +151,8 @@
 			children = (
 				5545DC461CEC9D60008C8945 /* TalkListCell.swift */,
 				5545DC4E1CECAFCE008C8945 /* ContactListCell.swift */,
+				550932431D020E540062A7B1 /* ReceiveCell.swift */,
+				550932451D020E650062A7B1 /* SendCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -134,9 +164,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5545DC3C1CEC9310008C8945 /* Build configuration list for PBXNativeTarget "WeTalk" */;
 			buildPhases = (
+				59D8AF3E7FC9F91EAF1A20D3 /* Check Pods Manifest.lock */,
 				5545DC1B1CEC9310008C8945 /* Sources */,
 				5545DC1C1CEC9310008C8945 /* Frameworks */,
 				5545DC1D1CEC9310008C8945 /* Resources */,
+				07B2D1A3D8228D15DB5711B9 /* Embed Pods Frameworks */,
+				5B57BE964EDE6CA41E9F4D7F /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -223,11 +256,60 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		07B2D1A3D8228D15DB5711B9 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WeTalk/Pods-WeTalk-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		59D8AF3E7FC9F91EAF1A20D3 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		5B57BE964EDE6CA41E9F4D7F /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WeTalk/Pods-WeTalk-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		5545DC1B1CEC9310008C8945 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				550932461D020E650062A7B1 /* SendCell.swift in Sources */,
 				5545DC501CECAFCE008C8945 /* ContactListCell.swift in Sources */,
 				5545DC481CEC9D60008C8945 /* TalkListCell.swift in Sources */,
 				5545DC4D1CECA1D5008C8945 /* FriendCircleController.swift in Sources */,
@@ -235,6 +317,7 @@
 				5545DC231CEC9310008C8945 /* AppDelegate.swift in Sources */,
 				5545DC4B1CECA1C3008C8945 /* ContactListController.swift in Sources */,
 				5545DC451CEC9B1B008C8945 /* TalkListController.swift in Sources */,
+				550932441D020E540062A7B1 /* ReceiveCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -363,6 +446,7 @@
 		};
 		5545DC3D1CEC9310008C8945 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2D77B0885F605E5AE7F9C780 /* Pods-WeTalk.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = WeTalk/Info.plist;
@@ -374,6 +458,7 @@
 		};
 		5545DC3E1CEC9310008C8945 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AC238FD222D90485966A47F6 /* Pods-WeTalk.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = WeTalk/Info.plist;

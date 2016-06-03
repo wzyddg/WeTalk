@@ -1,0 +1,6 @@
+framework module Pods_WeTalk {
+  umbrella header "Pods-WeTalk-umbrella.h"
+
+  export *
+  module * { export * }
+}
