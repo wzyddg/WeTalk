@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        var history1: NSMutableArray = ["1","你好，我是一号","2","你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好","2","你是哪里人","1","山东人","1","yeah"]
+        var history1: NSMutableArray = ["1","你好，我是我是我是我是我是我是我是我是我是我是我是我是我是我是我是我是我是我是我是我是我是我是一号","2","你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好","2","你是哪里人","1","山东人","1","yeah","1","ye"]
         var history2: NSMutableArray = ["1","你好，我是二号","2","你好","2","你是哪里人","1","内蒙人"]
         var history3: NSMutableArray = ["1","你好，我是三号","2","你好","2","你是哪里人","1","新疆人"]
         

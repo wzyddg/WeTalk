@@ -30,8 +30,8 @@ class TalkController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorStyle = .None
-        
         textField.delegate = self
+        historyArray = NSUserDefaults.standardUserDefaults().objectForKey(talkHistoryKey) as? NSMutableArray
         
         // Uncomment the following line to preservedo selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -46,11 +46,12 @@ class TalkController: UIViewController, UITableViewDelegate, UITableViewDataSour
         if isEmptyString(stringForSend!) {
             return
         }
-        var history = NSUserDefaults.standardUserDefaults().objectForKey(talkHistoryKey) as? NSMutableArray
-        history = NSMutableArray(array: history!)
-        history?.addObject("2")
-        history?.addObject(stringForSend!)
-        NSUserDefaults.standardUserDefaults().setObject(history, forKey: talkHistoryKey)
+        historyArray = NSUserDefaults.standardUserDefaults().objectForKey(talkHistoryKey) as? NSMutableArray
+        historyArray = NSMutableArray(array: historyArray!)
+        historyArray!.addObject("2")
+        historyArray!.addObject(stringForSend!)
+        NSUserDefaults.standardUserDefaults().setObject(historyArray, forKey: talkHistoryKey)
+        historyArray = NSUserDefaults.standardUserDefaults().objectForKey(talkHistoryKey) as? NSMutableArray
         tableView.reloadData()
         
         textField.text = ""
@@ -59,11 +60,12 @@ class TalkController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func getMessage(str:String) -> Void {
-        var history = NSUserDefaults.standardUserDefaults().objectForKey(talkHistoryKey) as? NSMutableArray
-        history = NSMutableArray(array: history!)
-        history?.addObject("1")
-        history?.addObject(str)
-        NSUserDefaults.standardUserDefaults().setObject(history, forKey: talkHistoryKey)
+        historyArray = NSUserDefaults.standardUserDefaults().objectForKey(talkHistoryKey) as? NSMutableArray
+        historyArray = NSMutableArray(array: historyArray!)
+        historyArray?.addObject("1")
+        historyArray?.addObject(str)
+        NSUserDefaults.standardUserDefaults().setObject(historyArray, forKey: talkHistoryKey)
+        historyArray = NSUserDefaults.standardUserDefaults().objectForKey(talkHistoryKey) as? NSMutableArray
         tableView.reloadData()
     }
 
@@ -90,60 +92,33 @@ class TalkController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        var history = NSUserDefaults.standardUserDefaults().objectForKey(talkHistoryKey) as! NSMutableArray
-        
-        return history.count/2
+        return historyArray!.count/2
     }
 
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
-        historyArray = NSUserDefaults.standardUserDefaults().objectForKey(talkHistoryKey) as? NSMutableArray
-
         if historyArray![indexPath.row*2] as! String == "1" {
-            var cell = tableView.dequeueReusableCellWithIdentifier("ReceiveCell", forIndexPath: indexPath) as! ReceiveCell
-            cell.contentLabel.text = historyArray![indexPath.row*2+1] as! String
-            
-//            cell.contentLabel.font = UIFont.systemFontOfSize(16)
-//            cell.contentLabel.numberOfLines = 0
-//            cell.contentLabel.lineBreakMode = .ByTruncatingTail
-//            let maxSize = CGSizeMake(UIScreen.mainScreen().bounds.width-110 , 20000)
-//            let realSize = cell.contentLabel.sizeThatFits(maxSize)
-//            cell.contentLabel.frame = CGRectMake(cell.contentLabel.frame.minX , cell.contentLabel.frame.minY, realSize.width, realSize.height)
-//            
-//            cell.boundaryView.frame = CGRectMake(cell.contentLabel.frame.minX , cell.contentLabel.frame.minY, realSize.width, realSize.height)
+            let cell = tableView.dequeueReusableCellWithIdentifier("ReceiveCell", forIndexPath: indexPath) as! ReceiveCell
+            cell.contentLabel.text = historyArray![indexPath.row*2+1] as? String
             
             return cell
         }else{
-            var cell = tableView.dequeueReusableCellWithIdentifier("SendCell", forIndexPath: indexPath) as! SendCell
-            cell.contentLabel.text = historyArray![indexPath.row*2+1] as! String
-            
-//            cell.contentLabel.font = UIFont.systemFontOfSize(16)
-//            cell.contentLabel.numberOfLines = 0
-//            cell.contentLabel.lineBreakMode = .ByTruncatingTail
-//            let maxSize = CGSizeMake(UIScreen.mainScreen().bounds.width-110 , 20000)
-//            let realSize = cell.contentLabel.sizeThatFits(maxSize)
-////            cell.contentLabel.frame.size = realSize
-//            cell.contentLabel.frame = CGRectMake(cell.contentLabel.frame.minX , cell.contentLabel.frame.minY, realSize.width, realSize.height)
-//            
-////            cell.boundaryView.frame.size = CGSizeMake(realSize.width+20, realSize.height+20)
-//            cell.boundaryView.frame = CGRectMake(cell.contentLabel.frame.minX , cell.contentLabel.frame.minY, realSize.width, realSize.height)
+            let cell = tableView.dequeueReusableCellWithIdentifier("SendCell", forIndexPath: indexPath) as! SendCell
+            cell.contentLabel.text = historyArray![indexPath.row*2+1] as? String
             
             return cell
         }
-        
-//        if(indexPath.row%2==0){
-//            let cell = tableView.dequeueReusableCellWithIdentifier("ReceiveCell", forIndexPath: indexPath) as! ReceiveCell
-//            return cell
-//        }else{
-//            return tableView.dequeueReusableCellWithIdentifier("SendCell", forIndexPath: indexPath) as! SendCell
-//        }
-
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        
-        return 70
+        let tmp = UILabel()
+        tmp.numberOfLines = 0
+        tmp.text = historyArray![indexPath.row*2+1] as? String
+        tmp.lineBreakMode = .ByWordWrapping
+        tmp.font = UIFont.systemFontOfSize(16)
+        let maxSize = CGSize(width: UIScreen.mainScreen().bounds.width-105, height: 2000)
+        let actualSize = tmp.sizeThatFits(maxSize)
+        return max(actualSize.height+20, 45)
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
