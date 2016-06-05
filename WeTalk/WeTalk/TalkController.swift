@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Alamofire
 
 class TalkController: UIViewController, UITableViewDelegate, UITableViewDataSource , UITextFieldDelegate{
     
@@ -32,6 +31,8 @@ class TalkController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableView.dataSource = self
         tableView.separatorStyle = .None
         
+        textField.delegate = self
+        
         // Uncomment the following line to preservedo selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         
@@ -41,11 +42,43 @@ class TalkController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     @IBAction func sendClicked(sender: UIButton) {
+        let stringForSend = textField.text
+        if isEmptyString(stringForSend!) {
+            return
+        }
+        var history = NSUserDefaults.standardUserDefaults().objectForKey(talkHistoryKey) as? NSMutableArray
+        history = NSMutableArray(array: history!)
+        history?.addObject("2")
+        history?.addObject(stringForSend!)
+        NSUserDefaults.standardUserDefaults().setObject(history, forKey: talkHistoryKey)
+        tableView.reloadData()
+        
+        textField.text = ""
+        
+        getMessage("reply to:"+stringForSend!)
+    }
+    
+    func getMessage(str:String) -> Void {
+        var history = NSUserDefaults.standardUserDefaults().objectForKey(talkHistoryKey) as? NSMutableArray
+        history = NSMutableArray(array: history!)
+        history?.addObject("1")
+        history?.addObject(str)
+        NSUserDefaults.standardUserDefaults().setObject(history, forKey: talkHistoryKey)
+        tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func isEmptyString(str: String) -> Bool{
+        for c in str.characters {
+            if c != "\n" {
+                return false
+            }
+        }
+        return true
     }
 
     // MARK: - Table view data source
@@ -65,36 +98,36 @@ class TalkController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        if historyArray == nil {
-            historyArray = NSUserDefaults.standardUserDefaults().objectForKey(talkHistoryKey) as? NSMutableArray
-        }
+        historyArray = NSUserDefaults.standardUserDefaults().objectForKey(talkHistoryKey) as? NSMutableArray
 
         if historyArray![indexPath.row*2] as! String == "1" {
             var cell = tableView.dequeueReusableCellWithIdentifier("ReceiveCell", forIndexPath: indexPath) as! ReceiveCell
-            cell.contentLabel.font = UIFont.systemFontOfSize(16)
             cell.contentLabel.text = historyArray![indexPath.row*2+1] as! String
-            cell.contentLabel.numberOfLines = 0
-            cell.contentLabel.lineBreakMode = .ByTruncatingTail
-            let maxSize = CGSizeMake(UIScreen.mainScreen().bounds.width-110 , 20000)
-            let realSize = cell.contentLabel.sizeThatFits(maxSize)
-            cell.contentLabel.frame = CGRectMake(cell.contentLabel.frame.minX , cell.contentLabel.frame.minY, realSize.width, realSize.height)
             
-            cell.boundaryView.frame = CGRectMake(cell.contentLabel.frame.minX , cell.contentLabel.frame.minY, realSize.width, realSize.height)
+//            cell.contentLabel.font = UIFont.systemFontOfSize(16)
+//            cell.contentLabel.numberOfLines = 0
+//            cell.contentLabel.lineBreakMode = .ByTruncatingTail
+//            let maxSize = CGSizeMake(UIScreen.mainScreen().bounds.width-110 , 20000)
+//            let realSize = cell.contentLabel.sizeThatFits(maxSize)
+//            cell.contentLabel.frame = CGRectMake(cell.contentLabel.frame.minX , cell.contentLabel.frame.minY, realSize.width, realSize.height)
+//            
+//            cell.boundaryView.frame = CGRectMake(cell.contentLabel.frame.minX , cell.contentLabel.frame.minY, realSize.width, realSize.height)
             
             return cell
         }else{
             var cell = tableView.dequeueReusableCellWithIdentifier("SendCell", forIndexPath: indexPath) as! SendCell
-            cell.contentLabel.font = UIFont.systemFontOfSize(16)
             cell.contentLabel.text = historyArray![indexPath.row*2+1] as! String
-            cell.contentLabel.numberOfLines = 0
-            cell.contentLabel.lineBreakMode = .ByTruncatingTail
-            let maxSize = CGSizeMake(UIScreen.mainScreen().bounds.width-110 , 20000)
-            let realSize = cell.contentLabel.sizeThatFits(maxSize)
-//            cell.contentLabel.frame.size = realSize
-            cell.contentLabel.frame = CGRectMake(cell.contentLabel.frame.minX , cell.contentLabel.frame.minY, realSize.width, realSize.height)
             
-//            cell.boundaryView.frame.size = CGSizeMake(realSize.width+20, realSize.height+20)
-            cell.boundaryView.frame = CGRectMake(cell.contentLabel.frame.minX , cell.contentLabel.frame.minY, realSize.width, realSize.height)
+//            cell.contentLabel.font = UIFont.systemFontOfSize(16)
+//            cell.contentLabel.numberOfLines = 0
+//            cell.contentLabel.lineBreakMode = .ByTruncatingTail
+//            let maxSize = CGSizeMake(UIScreen.mainScreen().bounds.width-110 , 20000)
+//            let realSize = cell.contentLabel.sizeThatFits(maxSize)
+////            cell.contentLabel.frame.size = realSize
+//            cell.contentLabel.frame = CGRectMake(cell.contentLabel.frame.minX , cell.contentLabel.frame.minY, realSize.width, realSize.height)
+//            
+////            cell.boundaryView.frame.size = CGSizeMake(realSize.width+20, realSize.height+20)
+//            cell.boundaryView.frame = CGRectMake(cell.contentLabel.frame.minX , cell.contentLabel.frame.minY, realSize.width, realSize.height)
             
             return cell
         }
@@ -116,6 +149,10 @@ class TalkController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+    
+    func textFieldDidBeginEditing(textField: UITextField) {
+        textField.becomeFirstResponder()
     }
     
     /*
