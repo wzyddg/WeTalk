@@ -17,7 +17,6 @@ class ReceiveCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         boundaryView.layer.cornerRadius = 5
-        self.userInteractionEnabled = false
     }
 
     override func setSelected(selected: Bool, animated: Bool) {

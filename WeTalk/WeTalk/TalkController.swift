@@ -9,6 +9,7 @@
 import UIKit
 
 class TalkController: UIViewController, UITableViewDelegate, UITableViewDataSource , UITextFieldDelegate{
+    @IBOutlet weak var viewBottomConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var sendButton: UIButton!
@@ -23,9 +24,10 @@ class TalkController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        NSNotificationCenter.defaultCenter().addObserver(self,selector: #selector(TalkController.keyboardWillChange(_:)),name:UIKeyboardWillChangeFrameNotification, object: nil)
 
         tableView.delegate = self
         tableView.dataSource = self
@@ -41,9 +43,31 @@ class TalkController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
     }
     
+    func keyboardWillChange(notification: NSNotification) {
+        if let userInfo = notification.userInfo,
+            value = userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue {
+            
+            let frame = value.CGRectValue()
+            let intersection = CGRectIntersection(frame, self.view.frame)
+            
+            //改变下约束
+            self.viewBottomConstraint.constant = CGRectGetHeight(intersection)
+        }
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        scrollToBottom()
+    }
+    
+    func scrollToBottom() {
+        tableView.scrollToRowAtIndexPath(NSIndexPath(forRow: (historyArray?.count)!/2-1 , inSection: 0), atScrollPosition: .Bottom, animated: true)
+    }
+    
     @IBAction func sendClicked(sender: UIButton) {
         let stringForSend = textField.text
         if isEmptyString(stringForSend!) {
+            textField.text = ""
             return
         }
         historyArray = NSUserDefaults.standardUserDefaults().objectForKey(talkHistoryKey) as? NSMutableArray
@@ -57,6 +81,7 @@ class TalkController: UIViewController, UITableViewDelegate, UITableViewDataSour
         textField.text = ""
         
         getMessage("reply to:"+stringForSend!)
+        scrollToBottom()
     }
     
     func getMessage(str:String) -> Void {
@@ -67,7 +92,12 @@ class TalkController: UIViewController, UITableViewDelegate, UITableViewDataSour
         NSUserDefaults.standardUserDefaults().setObject(historyArray, forKey: talkHistoryKey)
         historyArray = NSUserDefaults.standardUserDefaults().objectForKey(talkHistoryKey) as? NSMutableArray
         tableView.reloadData()
+        scrollToBottom()
     }
+    
+//    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+//        textField.resignFirstResponder()
+//    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -76,7 +106,7 @@ class TalkController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func isEmptyString(str: String) -> Bool{
         for c in str.characters {
-            if c != "\n" {
+            if c != "\n" && c != " " {
                 return false
             }
         }
@@ -122,12 +152,16 @@ class TalkController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
+        sendClicked(UIButton())
         return true
     }
     
     func textFieldDidBeginEditing(textField: UITextField) {
         textField.becomeFirstResponder()
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        textField.resignFirstResponder()
     }
     
     /*
