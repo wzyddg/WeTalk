@@ -9,7 +9,8 @@
 import UIKit
 
 class FriendCircleController: UITableViewController {
-
+    var fcIDs = NSUserDefaults.standardUserDefaults().objectForKey("FriendCircleKeys") as! NSMutableArray
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -22,6 +23,8 @@ class FriendCircleController: UITableViewController {
     
     override func viewWillAppear(animated: Bool) {
         self.tabBarController?.title = "FriendCircle"
+        
+        print("fc\(NSDate())")
     }
 
     override func didReceiveMemoryWarning() {
@@ -42,24 +45,30 @@ class FriendCircleController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier("FriendCircleCell", forIndexPath: indexPath)
+        var cell = tableView.dequeueReusableCellWithIdentifier("FriendCircleCell", forIndexPath: indexPath) as! FriendCircleCell
+        var friendCircleDic = NSUserDefaults.standardUserDefaults().objectForKey(fcIDs[indexPath.row] as! String) as! NSDictionary
         
-        
+        cell.avatarImageView.image = UIImage(named: "icon"+(friendCircleDic.objectForKey("UserID") as! String))
+        cell.nameLabel.text = "Contact\(friendCircleDic.objectForKey("UserID") as! String)"
+        cell.postContentLabel.text = friendCircleDic.objectForKey("Content") as! String
+        cell.pictureImageView.image = UIImage(named: "icon"+(friendCircleDic.objectForKey("UserID") as! String))
         // Configure the cell...
-        
+        print(indexPath.row)
         return cell
     }
 
-    /*
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
-
-        // Configure the cell...
-
-        return cell
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        var friendCircleDic = NSUserDefaults.standardUserDefaults().objectForKey(fcIDs[indexPath.row] as! String) as! NSDictionary
+        let tmp = UILabel()
+        tmp.numberOfLines = 0
+        tmp.text = friendCircleDic.objectForKey("Content") as! String
+        tmp.lineBreakMode = .ByWordWrapping
+        tmp.font = UIFont.systemFontOfSize(16)
+        let maxSize = CGSize(width: UIScreen.mainScreen().bounds.width-70, height: 2000)
+        let actualSize = tmp.sizeThatFits(maxSize)
+        
+        return 21+actualSize.height+10+UIScreen.mainScreen().bounds.width-70
     }
-    */
-
     /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {

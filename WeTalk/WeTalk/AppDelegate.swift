@@ -16,6 +16,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        setFakeData()
+        
+        return true
+    }
+    
+    func setFakeData() {
         let history1: NSMutableArray = ["1","你好，我是我是我是我是我是我是我是我是我是我是我是我是我是我是我是我是我是我是我是我是我是我是一号","2","你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好","2","你是哪里人","1","山东人","1","yeah","1","ye"]
         let history2: NSMutableArray = ["1","你好，我是二号","2","你好","2","你是哪里人","1","内蒙人"]
         let history3: NSMutableArray = ["1","你好，我是三号","2","你好","2","你是哪里人","1","新疆人"]
@@ -30,7 +36,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             NSUserDefaults.standardUserDefaults().setObject(history3, forKey: "3TalkHistory")
         }
         
-        return true
+        let friendCircleKeys = NSMutableArray(array: ["fc001","fc002","fc003"])
+        
+//        if NSUserDefaults.standardUserDefaults().objectForKey("FriendCircleKeys") == nil {
+            NSUserDefaults.standardUserDefaults().setObject(friendCircleKeys, forKey: "FriendCircleKeys")
+            for(var i=0;i<friendCircleKeys.count;i = i+1 ){
+                let dic = NSMutableDictionary()
+                dic.setValue("this is a test text from user \(3-i) and it needs to be long long long long enough to make sure that one line can not contain all these words and I believe it's long enough now", forKey: "Content")
+                dic.setValue("\(3-i)", forKey: "UserID")
+                NSUserDefaults.standardUserDefaults().setObject(dic, forKey: friendCircleKeys[i] as! String)
+            }
+//        }
     }
 
     func applicationWillResignActive(application: UIApplication) {

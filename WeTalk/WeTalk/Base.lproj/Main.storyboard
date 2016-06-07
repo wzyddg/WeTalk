@@ -352,16 +352,16 @@
         <scene sceneID="6dL-sG-Khi">
             <objects>
                 <tableViewController id="d43-a0-jaS" customClass="FriendCircleController" customModule="WeTalk" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="132" sectionHeaderHeight="28" sectionFooterHeight="28" id="fvo-Hi-Vrl">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="309" sectionHeaderHeight="28" sectionFooterHeight="28" id="fvo-Hi-Vrl">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FriendCircleCell" rowHeight="132" id="m9i-YL-08r">
-                                <rect key="frame" x="0.0" y="92" width="600" height="132"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FriendCircleCell" rowHeight="309" id="m9i-YL-08r" customClass="FriendCircleCell" customModule="WeTalk" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="600" height="309"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="m9i-YL-08r" id="JSA-Of-MhV">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="131.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="308.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Jx3-00-zaL">
@@ -371,12 +371,42 @@
                                                 <constraint firstAttribute="width" constant="40" id="u0d-PQ-WPW"/>
                                             </constraints>
                                         </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KWz-fS-4Bf">
+                                            <rect key="frame" x="58" y="8" width="534" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabel" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pvg-qJ-qEg">
+                                            <rect key="frame" x="58" y="29" width="514" height="20"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon4" translatesAutoresizingMaskIntoConstraints="NO" id="ru5-Xg-Oxa">
+                                            <rect key="frame" x="58" y="59" width="514" height="300"/>
+                                        </imageView>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="Pvg-qJ-qEg" firstAttribute="leading" secondItem="Jx3-00-zaL" secondAttribute="trailing" constant="10" id="3SR-aF-6jO"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="KWz-fS-4Bf" secondAttribute="trailing" id="5KO-2x-zXh"/>
+                                        <constraint firstItem="ru5-Xg-Oxa" firstAttribute="trailing" secondItem="Pvg-qJ-qEg" secondAttribute="trailing" id="DN8-XY-8ud"/>
+                                        <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="Pvg-qJ-qEg" secondAttribute="trailing" constant="20" id="O35-RQ-sdc"/>
+                                        <constraint firstItem="KWz-fS-4Bf" firstAttribute="top" secondItem="Jx3-00-zaL" secondAttribute="top" id="Rk0-ic-I1t"/>
                                         <constraint firstItem="Jx3-00-zaL" firstAttribute="leading" secondItem="JSA-Of-MhV" secondAttribute="leadingMargin" id="eMJ-lK-Nuv"/>
+                                        <constraint firstItem="ru5-Xg-Oxa" firstAttribute="top" secondItem="Pvg-qJ-qEg" secondAttribute="bottom" constant="10" id="fbv-d1-dDp"/>
+                                        <constraint firstItem="KWz-fS-4Bf" firstAttribute="leading" secondItem="Jx3-00-zaL" secondAttribute="trailing" constant="10" id="uID-23-pRB"/>
+                                        <constraint firstItem="ru5-Xg-Oxa" firstAttribute="leading" secondItem="Pvg-qJ-qEg" secondAttribute="leading" id="wJd-oN-7bE"/>
+                                        <constraint firstItem="Pvg-qJ-qEg" firstAttribute="top" secondItem="KWz-fS-4Bf" secondAttribute="bottom" id="xg7-yT-77j"/>
                                         <constraint firstItem="Jx3-00-zaL" firstAttribute="top" secondItem="JSA-Of-MhV" secondAttribute="topMargin" id="yOE-ir-qYl"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="avatarImageView" destination="Jx3-00-zaL" id="HzK-eZ-jou"/>
+                                    <outlet property="nameLabel" destination="KWz-fS-4Bf" id="CX6-LA-pJA"/>
+                                    <outlet property="pictureImageView" destination="ru5-Xg-Oxa" id="ud2-Qe-JCJ"/>
+                                    <outlet property="postContentLabel" destination="Pvg-qJ-qEg" id="sHB-gI-1B4"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -393,7 +423,7 @@
     </scenes>
     <resources>
         <image name="icon1" width="300" height="300"/>
-        <image name="icon3" width="200" height="200"/>
+        <image name="icon3" width="972" height="972"/>
         <image name="icon4" width="300" height="300"/>
     </resources>
 </document>

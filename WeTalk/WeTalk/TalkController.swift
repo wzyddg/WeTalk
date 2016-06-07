@@ -58,9 +58,7 @@ class TalkController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
-        self.navigationController?.title = talkID+"dadawda"
-        
+        self.navigationItem.title = "Contact"+talkID
         scrollToBottom()
     }
     
