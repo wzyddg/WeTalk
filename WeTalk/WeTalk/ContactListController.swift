@@ -44,11 +44,20 @@ class ContactListController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCellWithIdentifier("ContactListCell", forIndexPath: indexPath) as! ContactListCell
         
-        cell.avatar.image = UIImage(named: "icon\(indexPath.row+1)ss")
+        cell.avatar.image = UIImage(named: "icon\(indexPath.row+1)")
         cell.avatar.layer.cornerRadius = 5
         cell.nameLabel.text = "contact\(indexPath.row+1)"
         
         return cell
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        //go to another vc
+        let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let talkVC = mainStoryboard.instantiateViewControllerWithIdentifier("TalkController") as! TalkController
+        talkVC.talkID = "\(indexPath.row+1)"
+        tableView.deselectRowAtIndexPath(indexPath, animated: false)
+        self.navigationController?.pushViewController(talkVC, animated: true)
     }
     
     /*

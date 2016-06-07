@@ -35,6 +35,7 @@ class TalkController: UIViewController, UITableViewDelegate, UITableViewDataSour
         textField.delegate = self
         historyArray = NSUserDefaults.standardUserDefaults().objectForKey(talkHistoryKey) as? NSMutableArray
         
+        self.edgesForExtendedLayout = .None
         // Uncomment the following line to preservedo selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         
@@ -57,6 +58,9 @@ class TalkController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        
+        self.navigationController?.title = talkID+"dadawda"
+        
         scrollToBottom()
     }
     
@@ -130,6 +134,7 @@ class TalkController: UIViewController, UITableViewDelegate, UITableViewDataSour
         if historyArray![indexPath.row*2] as! String == "1" {
             let cell = tableView.dequeueReusableCellWithIdentifier("ReceiveCell", forIndexPath: indexPath) as! ReceiveCell
             cell.contentLabel.text = historyArray![indexPath.row*2+1] as? String
+            cell.avatarImageView.image = UIImage(named: "icon"+talkID)
             
             return cell
         }else{
@@ -150,6 +155,10 @@ class TalkController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let actualSize = tmp.sizeThatFits(maxSize)
         return max(actualSize.height+20, 45)
     }
+    
+//    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+//        return 0
+//    }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         sendClicked(UIButton())

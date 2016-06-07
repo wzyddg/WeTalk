@@ -10,6 +10,7 @@
 		2730FBBC52CC0094C10A48CD /* Pods_WeTalk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7CC3186A16C3B21A1A4861A /* Pods_WeTalk.framework */; };
 		550932441D020E540062A7B1 /* ReceiveCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550932431D020E540062A7B1 /* ReceiveCell.swift */; };
 		550932461D020E650062A7B1 /* SendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550932451D020E650062A7B1 /* SendCell.swift */; };
+		550932481D056B840062A7B1 /* FriendCircleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550932471D056B840062A7B1 /* FriendCircleCell.swift */; };
 		551020C21CFEFA530095DCEF /* TalkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551020C11CFEFA530095DCEF /* TalkController.swift */; };
 		5545DC231CEC9310008C8945 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5545DC221CEC9310008C8945 /* AppDelegate.swift */; };
 		5545DC281CEC9310008C8945 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5545DC261CEC9310008C8945 /* Main.storyboard */; };
@@ -37,6 +38,7 @@
 		2D77B0885F605E5AE7F9C780 /* Pods-WeTalk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeTalk.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeTalk/Pods-WeTalk.debug.xcconfig"; sourceTree = "<group>"; };
 		550932431D020E540062A7B1 /* ReceiveCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReceiveCell.swift; sourceTree = "<group>"; };
 		550932451D020E650062A7B1 /* SendCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendCell.swift; sourceTree = "<group>"; };
+		550932471D056B840062A7B1 /* FriendCircleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendCircleCell.swift; sourceTree = "<group>"; };
 		551020C11CFEFA530095DCEF /* TalkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TalkController.swift; sourceTree = "<group>"; };
 		5545DC1F1CEC9310008C8945 /* WeTalk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeTalk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5545DC221CEC9310008C8945 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 				5545DC4E1CECAFCE008C8945 /* ContactListCell.swift */,
 				550932431D020E540062A7B1 /* ReceiveCell.swift */,
 				550932451D020E650062A7B1 /* SendCell.swift */,
+				550932471D056B840062A7B1 /* FriendCircleCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -316,6 +319,7 @@
 				551020C21CFEFA530095DCEF /* TalkController.swift in Sources */,
 				5545DC231CEC9310008C8945 /* AppDelegate.swift in Sources */,
 				5545DC4B1CECA1C3008C8945 /* ContactListController.swift in Sources */,
+				550932481D056B840062A7B1 /* FriendCircleCell.swift in Sources */,
 				5545DC451CEC9B1B008C8945 /* TalkListController.swift in Sources */,
 				550932441D020E540062A7B1 /* ReceiveCell.swift in Sources */,
 			);

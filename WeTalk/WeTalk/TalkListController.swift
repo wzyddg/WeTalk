@@ -24,6 +24,7 @@ class TalkListController: UITableViewController {
     
     override func viewWillAppear(animated: Bool) {
         self.tabBarController?.title = "WeTalk"
+        tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -50,12 +51,19 @@ class TalkListController: UITableViewController {
         cell.avatar.layer.cornerRadius = 5
         cell.nameLabel.text = "contact\(indexPath.row+1)"
         
+        var history =  NSUserDefaults.standardUserDefaults().objectForKey("\(indexPath.row+1)TalkHistory") as! NSMutableArray
+        cell.lastSentenceLabel.text = history[history.count-1] as! String
+        
         return cell
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         //go to another vc
-        
+        let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let talkVC = mainStoryboard.instantiateViewControllerWithIdentifier("TalkController") as! TalkController
+        talkVC.talkID = "\(indexPath.row+1)"
+        tableView.deselectRowAtIndexPath(indexPath, animated: false)
+        self.navigationController?.pushViewController(talkVC, animated: true)
     }
     
     
